@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.8;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2D1810;
+  background-color: #FAF3E8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+@layer components {
+  .section-padding {
+    @apply px-6 py-20 md:px-12 lg:px-20 lg:py-28;
+  }
+
+  .section-title {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold text-sand-900 mb-4;
+  }
+
+  .section-subtitle {
+    @apply font-body text-base md:text-lg text-sand-700 max-w-2xl;
+  }
+
+  .sand-divider {
+    @apply w-24 h-0.5 bg-gradient-to-r from-transparent via-sand-400 to-transparent my-8;
+  }
+}
+
+.sand-texture {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C4956A' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(45, 24, 16, 0.3) 0%,
+    rgba(45, 24, 16, 0.6) 50%,
+    rgba(45, 24, 16, 0.85) 100%
+  );
+}
+
+.gradient-fade-bottom {
+  background: linear-gradient(to bottom, transparent, #FAF3E8);
+}
+
+.relic-card:hover .relic-image {
+  transform: scale(1.05);
+}
+
+.relic-image {
+  transition: transform 0.5s ease;
+}
+
+.lightbox-overlay {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, #C4956A, transparent);
+  transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 20px;
+  }
+}
+
+.camel-silhouette {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 80' fill='%23C4956A' fill-opacity='0.08'%3E%3Cpath d='M20 60 Q25 30 35 25 Q40 20 45 25 Q48 15 55 10 Q60 8 62 12 L65 20 Q70 18 75 20 Q80 15 85 20 Q90 25 88 30 L90 35 Q95 33 100 35 L120 35 Q125 33 130 35 L135 30 Q138 25 142 28 L145 35 Q150 38 148 42 L150 50 Q152 55 148 58 L145 60 Q140 62 138 58 L135 50 Q130 48 125 50 L100 50 Q95 48 90 50 L85 55 Q80 58 75 55 L70 50 Q65 52 60 50 L55 55 Q50 58 45 55 L40 50 Q35 52 30 50 L25 55 Q20 58 18 55 L20 60Z'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 120px 50px;
+  height: 50px;
+  animation: sandDrift 8s ease-in-out infinite;
+}
+
+@keyframes sandDrift {
+  0%, 100% { background-position-x: 0; }
+  50% { background-position-x: 120px; }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF3E8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C4956A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B07D4F;
+}
