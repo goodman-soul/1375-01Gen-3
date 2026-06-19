@@ -1,57 +1,88 @@
-# React + TypeScript + Vite
+# 沙漠驿站 — 丝路古道上的文明印记
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+沉浸式单页文化展示网站，呈现丝绸之路上沙漠驿站的历史风貌与当代旅行指南。
 
-Currently, two official plugins are available:
+## 项目概述
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+沙漠驿站文化页是一个面向文化爱好者、旅行者和历史研究者的文化展示站点，通过温暖的视觉设计与清晰的信息层次，让读者深入理解古商道、水井、骆驼队与防风民居的文化内涵，同时获取实用的旅行补给与安全信息。
 
-## Expanding the ESLint configuration
+## 核心板块
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **英雄区** — 全屏沉浸式沙丘背景，驿站名称与标语
+2. **古商道** — 丝绸之路段落地图、驿站分布、商贸路线演变时间轴
+3. **水井** — 坎儿井与古井的构造图解、水源对驿站存续的意义
+4. **骆驼队** — 驼队编制、行进节奏、驮运物资与驿站补给关系
+5. **防风民居** — 夯土建筑结构、通风设计、民居布局与气候适应性
+6. **文物画廊** — 6 件文物照片配年代与来源标注，支持灯箱放大查看
+7. **旅行指南** — 最佳季节、补给站点、安全边界提示
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 技术栈
+
+- **框架**：React 18 + TypeScript
+- **构建工具**：Vite 6
+- **样式**：Tailwind CSS 3
+- **路由**：React Router 7
+- **图标**：lucide-react
+- **字体**：Playfair Display（标题）、Noto Serif SC（中文正文）
+
+## 设计规范
+
+- **主色调**：沙金 `#C4956A`、赤陶 `#B8634B`、深棕 `#3D2B1F`
+- **背景色**：暖米白 `#FAF3E8`
+- **文字对比度**：正文深棕在暖米白上对比度约 12:1，符合 WCAG AAA 标准
+- **响应式**：桌面优先设计，自适应平板与移动端
+
+## 快速开始
+
+```bash
+# 安装依赖
+npm install
+
+# 启动开发服务器
+npm run dev
+
+# 类型检查
+npm run check
+
+# 构建生产版本
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 项目结构
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  extends: [
-    // other configs...
-    // Enable lint rules for React
-    reactX.configs['recommended-typescript'],
-    // Enable lint rules for React DOM
-    reactDom.configs.recommended,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
 ```
+src/
+├── components/         # UI 组件
+│   ├── Navbar.tsx
+│   ├── HeroSection.tsx
+│   ├── TradeRouteSection.tsx
+│   ├── WellSection.tsx
+│   ├── CamelCaravanSection.tsx
+│   ├── DwellingSection.tsx
+│   ├── RelicGallery.tsx
+│   ├── TravelGuideSection.tsx
+│   └── Footer.tsx
+├── data/               # 静态数据
+│   ├── relics.ts       # 文物信息
+│   └── travelGuide.ts  # 旅行指南
+├── hooks/              # 自定义 Hook
+│   └── useScrollReveal.ts
+├── pages/              # 页面
+│   └── Home.tsx
+├── App.tsx
+├── main.tsx
+└── index.css
+```
+
+## 文物资源
+
+所有文物展示图片均存放于 `public/images/relics/` 目录下，共 6 件：
+
+| 编号 | 文物名称 | 年代 | 来源 |
+|------|----------|------|------|
+| relic-1 | 唐代驼队陶俑 | 唐代（618–907年） | 新疆维吾尔自治区博物馆 |
+| relic-2 | 汉代铜镜 | 汉代（前206–220年） | 甘肃省文物考古研究所 |
+| relic-3 | 丝路钱币 | 唐—宋代（7–13世纪） | 敦煌研究院 |
+| relic-4 | 驿站木简 | 魏晋时期（220–420年） | 甘肃省简牍博物馆 |
+| relic-5 | 坎儿井出水口石构件 | 清代（1644–1912年） | 吐鲁番博物馆 |
+| relic-6 | 防风民居夯土砖 | 明清时期（1368–1912年） | 宁夏固原博物馆 |

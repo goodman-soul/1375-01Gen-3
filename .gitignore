@@ -12,6 +12,13 @@ dist
 dist-ssr
 *.local
 .trae/
+coverage
+*.tsbuildinfo
+
+# Local environment files
+.env
+.env.*
+!.env.example
 
 # Editor directories and files
 .vscode/*
